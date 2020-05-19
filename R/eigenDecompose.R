@@ -92,7 +92,7 @@ eigenDecompose <- function(expData, n = 10, pseudo = TRUE, returnData = TRUE, se
   svd <- svd[c("x", "rotation", "center", "scale", "sdev")]
   
   if(returnData){
-    return(new("scPred", svd = svd, expVar = varianceExplained, pseudo = pseudo, trainData = Matrix(t(expData))))
+    return(new("scPred", svd = svd, expVar = varianceExplained, pseudo = pseudo, trainData = Matrix(t(expData), sparse=TRUE)))
     
   }else{
     return(new("scPred", svd = svd, expVar = varianceExplained, pseudo = pseudo)) 
